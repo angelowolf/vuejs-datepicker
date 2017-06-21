@@ -1,6 +1,6 @@
 <template>
   <div class="vdp-datepicker" :class="wrapperClass">
-    <div :class="{'input-group' : bootstrapStyling}">
+    <div :class="[divClass, { 'input-group' : bootstrapStyling } ]">
       <span class="vdp-datepicker__calendar-button" :class="{'input-group-addon' : bootstrapStyling}" v-if="calendarButton" @click="showCalendar"><i :class="calendarButtonIcon"><span v-if="calendarButtonIcon.length === 0">&hellip;</span></i></span>
       <input
         :type="inline ? 'hidden' : 'text'"
@@ -114,6 +114,9 @@ export default {
     },
     inline: {
       type: Boolean
+    },
+    divClass: {
+      type: String
     },
     inputClass: {
       type: String
